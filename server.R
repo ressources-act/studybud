@@ -2,18 +2,19 @@ library(shiny)
 library(magrittr)
 
 # Ce fichier sert de backend à l'application
-shinyServer(function(input, output) {
-    output$text2display <- renderUI({
-        #filename <- "formule_test.txt"
-        #txtfile <- readChar(con = filename, nchars = file.info(filename)$size)
-        char_str <- stringi::stri_split(input$text2convert, regex = "\\n")
-        tagList(withMathJax(), lapply(char_str[[1]], shiny::p))
+shinyServer(function(input, output, session) {
+    ## Indiquer dans le dropdown tous les fichiers html contenus dans le folder flashcards/
+    files <- list.files(path = 'flashcards/', recursive = T, pattern = "*.html")
+    output$filelst <- renderUI({
+        selectInput('files', label = 'Choisir un fichier', choices = files)
     })
     
-    output$filelst <- renderUI({
-        files <- list.files('flashcards/', include.dirs = T, recursive = T)
-        selectInput('files', label = 'Choisir un fichier html',
-                    choices = files)
+    ## Bouton pour sélectionner aléatoirement une carte
+    observeEvent(input$random_card, {
+        choose_from <- files[-match(input$files, files)]
+        updateSelectInput(session, inputId = 'files',
+                          label = 'Choisir un fichier', choices = files,
+                          selected = sample(choose_from, 1))
     })
     
     output$flashcard <- renderUI({

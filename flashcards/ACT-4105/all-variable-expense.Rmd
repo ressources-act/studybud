@@ -1,0 +1,39 @@
+---
+output: html_document
+---
+
+# Tarification en assurance IARD (ACT-4105) {.tabset .tabset-fade .tabset-pills}
+
+## Question
+Nommez 2 problèmes potentiels de la méthode *All-Variable-Expenses* dans la projection des frais de souscription.
+
+## Réponse
+Avec cette méthodes, 2 problèmes peuvent survenir : 
+
+
+* Si la prime est **relativement faible**, on sous-estimera la prime requise.
+* à l'inverse, si la prime est **relativement élevée**, on surestimera la prime requise.
+
+### Graphique test, à enlever  :
+```{r, echo=FALSE}
+x <- 1:1000
+dat <- data.frame(
+    prime = x,
+    V = 0.2 * x,
+    fixe = 50
+)
+x <- 1:1000
+library(ggplot2)
+library(magrittr)
+dat %>%
+    ggplot(aes(x = prime)) + 
+    geom_point(aes(y = V, col = 'Variable')) + 
+    geom_point(aes(y = fixe, col = 'fixe'))
+```
+
+
+
+## À noter
+À supprimer si vous n'en avez pas besoin!
+
+Qu'on convertit en `HTML`, pour ensuite l'importer dans le fichier Shiny. Ce HTML est généré à partir du fichier `test1.Rmd`, et on l'inclut dans le document avec `includeHTML`

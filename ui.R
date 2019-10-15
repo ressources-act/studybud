@@ -10,6 +10,7 @@ shinyUI(fluidPage(
         mainPanel(
             h1("Aide à l'étude"),
             uiOutput('filelst'),
+            actionButton('random_card', 'Carte au hasard'),
             hr(),
             htmlOutput('flashcard')
         )

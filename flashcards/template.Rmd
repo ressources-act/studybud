@@ -1,0 +1,31 @@
+---
+output: html_document
+---
+
+# Question template {.tabset .tabset-fade .tabset-pills}
+
+
+
+## Question
+Inscrivez ici votre question. C'est un fichier Markdown, donc on peut y insérer du code informatique : 
+```{r}
+(x <- 1:5)
+mean(x)
+```
+
+On peut aussi insérer du texte mathématique avec la syntaxe de `LaTeX` : 
+$$
+E[X] =\sum_{x=0}^{\infty} x \Pr(X = x)
+$$
+
+
+## Réponse
+On insère ici la réponse. Le format HTML de l'application permet de cacher la réponse tant que l'utlisateur ne désire pas la voir.
+
+
+
+
+## Section supplémentaires
+À supprimer si vous n'en avez pas besoin!
+
+Qu'on convertit en `HTML`, pour ensuite l'importer dans le fichier Shiny. Ce HTML est généré à partir du fichier `test1.Rmd`, et on l'inclut dans le document avec `includeHTML`
