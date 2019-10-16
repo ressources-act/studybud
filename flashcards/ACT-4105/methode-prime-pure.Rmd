@@ -1,0 +1,16 @@
+---
+    output: html_document
+---
+    
+# Question template {.tabset .tabset-fade .tabset-pills}
+    
+    
+    
+## Question
+Dans la préparation de l'indiqué global, comment calcule-t-on la prime indiquée (en utilisant la méthode de la prime pure)?
+
+## Réponse
+Avec la méthode de la prime pure, on trouve la prime indiquée telle que $\bar{P}_I$
+$$
+\overline{P}_I = \frac{\overline{L + E_L} + \overline{E_F}}{1 - V - Q_T} = \frac{\frac{L + E_L}{X} + \frac{E_F}{X}}{1 - V - Q_T}
+$$

@@ -8,10 +8,10 @@ library(nlme)
 
 # Fichier pour configurer l'interface utilisateur
 shinyUI(fluidPage(
-    titlePanel("Study buddy"),
+    titlePanel("studybud"),
     withMathJax(),
         mainPanel(
-            h1("Aide à l'étude"),
+            img(src='studybud.png', align = "right", width = "20%", height = "20%"),
             uiOutput('filelst'),
             actionButton('random_card', 'Carte au hasard'),
             hr(),

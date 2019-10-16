@@ -6,7 +6,8 @@ library(nlme)
 # Ce fichier sert de backend à l'application
 shinyServer(function(input, output, session) {
     ## Indiquer dans le dropdown tous les fichiers html contenus dans le folder flashcards/
-    files <- list.files(path = 'flashcards/', recursive = T, pattern = "*.html")
+    flash_cards_root = "../flashcards/"
+    files <- list.files(path = flash_cards_root, recursive = T, pattern = "*.html")
     output$filelst <- renderUI({
         selectInput('files', label = 'Choisir un fichier', choices = files)
     })
@@ -21,7 +22,7 @@ shinyServer(function(input, output, session) {
     
     output$flashcard <- renderUI({
         input$files %>% 
-            paste0('flashcards/', .) %>% 
+            paste0(flash_cards_root, .) %>% 
             includeHTML() %>% 
             withMathJax()
         # On pourrait même mettre un mode random
