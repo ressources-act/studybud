@@ -1,5 +1,5 @@
 # studybud
-<img style="float: right; height: 150px" src="logo/studybud.png">
+<img style="float: right; height: 80px" src="logo/studybud.png">
 
 
 
