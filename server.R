@@ -1,5 +1,7 @@
 library(shiny)
 library(magrittr)
+library(MASS)
+library(nlme)
 
 # Ce fichier sert de backend à l'application
 shinyServer(function(input, output, session) {
